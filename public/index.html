@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CLICKFIT - Fitness Revolution</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">CLICKFIT</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#programs">PROGRAMS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">GALLERY</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">CONTACT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn-join" href="#join">JOIN NOW</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-main">
+            <h1 class="hero-title">UNLEASH YOUR POWER</h1>
+            <p class="hero-subtitle">
+              Elite fitness training designed to push your limits. Join
+              thousands who have transformed their lives with our proven
+              programs.
+            </p>
+            <div class="hero-buttons">
+              <button class="btn btn-primary btn-hero">
+                START FREE TRIAL <i class="fas fa-arrow-right ms-2"></i>
+              </button>
+              <button class="btn btn-outline btn-hero">
+                <i class="fas fa-play me-2"></i> WATCH VIDEO
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="motivation-box">
+              <h3><i class="fas fa-fire me-2"></i> DAILY MOTIVATION</h3>
+              <div class="motivation-content">
+                <h4>DID YOU KNOW?</h4>
+                <div id="number-fact" class="fact-text">
+                  <div class="spinner-border text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+                <div id="motivation-quote" class="motivation-quote mt-3">
+                  "Push yourself because no one else is going to do it for you."
+                </div>
+              </div>
+            </div>
+
+            <div class="stats-box">
+              <div class="stat-item">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Members</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Trainers</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Results</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-waves"></div>
+    </section>
+
+    <!-- API Data Display Section -->
+    <section class="api-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">DAILY FACT FROM API</h2>
+          <h3 class="section-subtitle">INTERESTING DATE FACT</h3>
+          <p class="section-description">
+            This data is fetched live from Numbers API using jQuery AJAX call
+          </p>
+        </div>
+
+        <div class="api-container">
+          <div class="api-card">
+            <div class="api-header">
+              <h4><i class="fas fa-database me-2"></i> API Response Data</h4>
+              <button id="refresh-api" class="btn btn-sm btn-primary">
+                <i class="fas fa-sync-alt"></i> Refresh
+              </button>
+            </div>
+
+            <div class="api-content">
+              <div class="api-status">
+                <div class="status-indicator">
+                  <span class="status-dot"></span>
+                  <span id="api-status-text">Fetching data from API...</span>
+                </div>
+              </div>
+
+              <div class="api-data-display">
+                <div class="api-fact">
+                  <h5>
+                    <i class="fas fa-info-circle me-2 text-warning"></i> Today's
+                    Fact:
+                  </h5>
+                  <div id="api-fact-text" class="fact-content">Loading...</div>
+                </div>
+
+                <div class="api-details">
+                  <h5>
+                    <i class="fas fa-code me-2 text-warning"></i> Raw API
+                    Response:
+                  </h5>
+                  <pre id="api-raw-data" class="api-raw">
+          {
+            "status": "loading",
+            "message": "Fetching data from /api/date-fact (proxy to numbersapi.com)"
+          }</pre
+                  >
+                </div>
+              </div>
+
+              <div class="api-info">
+                <p class="api-url">
+                  <i class="fas fa-link me-2"></i>
+                  API Endpoint:
+                  <code>/api/date-fact</code>
+                </p>
+                <div class="api-stats">
+                  <span class="api-stat">
+                    <i class="fas fa-clock me-1"></i>
+                    Last fetched: <span id="last-fetched">Never</span>
+                  </span>
+                  <span class="api-stat">
+                    <i class="fas fa-exchange-alt me-1"></i>
+                    Method: GET
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">OUR PROGRAMS</h2>
+          <h3 class="section-subtitle">TRAIN WITH PURPOSE</h3>
+          <p class="section-description">
+            Choose from our expertly designed programs tailored to help you
+            reach your fitness goals.
+          </p>
+        </div>
+
+        <div class="programs-grid">
+          <div class="program-card">
+            <div class="program-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h4>HIIT TRAINING</h4>
+            <p>
+              High-intensity interval training to maximize calorie burn and
+              boost metabolism in minimal time.
+            </p>
+            <a href="#" class="program-link"
+              >LEARN MORE <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="program-card">
+            <div class="program-icon">
+              <i class="fas fa-dumbbell"></i>
+            </div>
+            <h4>STRENGTH BUILDING</h4>
+            <p>
+              Progressive resistance training programs designed to build lean
+              muscle mass and increase power.
+            </p>
+            <a href="#" class="program-link"
+              >LEARN MORE <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="program-card">
+            <div class="program-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <h4>CARDIO ENDURANCE</h4>
+            <p>
+              Heart-pumping cardio sessions that improve stamina, endurance, and
+              cardiovascular health.
+            </p>
+            <a href="#" class="program-link"
+              >LEARN MORE <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="program-card">
+            <div class="program-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h4>COMPETITION PREP</h4>
+            <p>
+              Specialized coaching for athletes preparing for competitions and
+              achieving peak performance.
+            </p>
+            <a href="#" class="program-link"
+              >LEARN MORE <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Image Upload Section -->
+    <section id="gallery" class="upload-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">SHARE YOUR JOURNEY</h2>
+          <h3 class="section-subtitle">UPLOAD YOUR PROGRESS</h3>
+          <p class="section-description">
+            Share your transformation photos and inspire others on their fitness
+            journey.
+          </p>
+        </div>
+
+        <div class="upload-container">
+          <div id="upload-area" class="upload-area">
+            <!-- Hidden file input  -->
+            <input
+              id="file-input"
+              type="file"
+              name="images"
+              accept="image/*"
+              multiple
+              style="
+                position: absolute;
+                left: -9999px;
+                width: 1px;
+                height: 1px;
+                opacity: 0;
+              "
+            />
+
+            <div class="upload-content">
+              <div class="upload-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <h4>Drag & drop your images</h4>
+              <p class="upload-subtitle">or click to browse files</p>
+              <p class="upload-note">PNG, JPG, GIF up to 10MB</p>
+            </div>
+          </div>
+
+          <div id="upload-status" class="upload-status"></div>
+
+          <div id="uploaded-list" class="uploaded-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transform Section -->
+    <section class="transform-section">
+      <div class="container">
+        <div class="transform-content">
+          <h2>Transform your body, elevate your mind.</h2>
+          <p class="lead">Join the fitness revolution with Click Fit.</p>
+        </div>
+
+        <div class="programs-list">
+          <div class="program-item">
+            <i class="fas fa-mountain"></i>
+            <span>Hill Training</span>
+          </div>
+          <div class="program-item">
+            <i class="fas fa-weight-hanging"></i>
+            <span>Strength Building</span>
+          </div>
+          <div class="program-item">
+            <i class="fas fa-running"></i>
+            <span>Cardio</span>
+          </div>
+          <div class="program-item">
+            <i class="fas fa-spa"></i>
+            <span>Yoga</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>CLICKFIT</h3>
+            <p>
+              Transform your body, elevate your mind. Join the fitness
+              revolution with Click Fit.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>PROGRAMS</h4>
+              <ul>
+                <li><a href="#">Hill Training</a></li>
+                <li><a href="#">Strength Building</a></li>
+                <li><a href="#">Cardio</a></li>
+                <li><a href="#">Yoga</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>COMPANY</h4>
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>SUPPORT</h4>
+              <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; <span id="year"></span> Click Fit. All rights reserved.</p>
+          <p>Designed for fitness enthusiasts</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
